@@ -4,7 +4,6 @@ from app.Staff.weapon import Weapon
 
 
 class Knight:
-    knights = {}
 
     def __init__(
             self,
@@ -16,7 +15,6 @@ class Knight:
         self.power = power
         self.health_points = health_points
         self.protection = 0
-        Knight.knights = {self.name: self}
 
     def knight_stats_completing(
             self,
@@ -27,6 +25,6 @@ class Knight:
         self.power += weapon.power + potion.power
         self.protection += sum([
             armour.protection for armour in armours
-            if armours != []
+            if armours
         ]) + potion.protection
         self.health_points += potion.health
